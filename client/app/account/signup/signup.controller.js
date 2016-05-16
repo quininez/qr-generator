@@ -20,8 +20,8 @@ class SignupController {
           password: this.user.password
         })
         .then(() => {
-          // Account created, redirect to home
-          this.$state.go('main');
+          // Account created, redirect to qr code generator
+          this.$state.go('qrcode');
         })
         .catch(err => {
           err = err.data;

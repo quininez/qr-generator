@@ -19,8 +19,8 @@ class LoginController {
           password: this.user.password
         })
         .then(() => {
-          // Logged in, redirect to home
-          this.$state.go('main');
+          // Logged in, redirect to qr code generator
+          this.$state.go('qrcode');
         })
         .catch(err => {
           this.errors.other = err.message;

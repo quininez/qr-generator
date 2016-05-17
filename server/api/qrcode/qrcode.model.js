@@ -1,8 +1,9 @@
 'use strict';
 
 import mongoose from 'mongoose';
+var Schema = mongoose.Schema;
 
-var QrcodeSchema = new mongoose.Schema({
+var QrcodeSchema = new Schema({
   userId: {
   	type: Schema.Types.ObjectId,
   	ref: 'User'

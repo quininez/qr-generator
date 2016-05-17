@@ -7,7 +7,7 @@ class QrcodeComponent {
   }
 }
 
-angular.module('qrcode')
+angular.module('qrGenApp')
   .component('qrcode', {
     templateUrl: 'app/qrcode/qrcode.html',
     controller: QrcodeComponent

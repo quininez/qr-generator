@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('qrcode')
+angular.module('qrGenApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('qrcode', {

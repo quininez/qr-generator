@@ -1,0 +1,42 @@
+<div>
+  <div class="pull-left left-side">
+	<form role="form" name="qrForm" class="form-horizontal">
+		<div class="form-group" ng-class="{ 'has-error' : qrForm.url.$error.required && !qrForm.url.$pristine }">
+			<label for="url" class="col-xs-3">URL to convert</label>
+			<div class="col-xs-9">
+				<input type="text" name="url" ng-model="url" required class="form-control">
+				<span ng-show="qrForm.url.$error.required && !qrForm.url.$pristine" class="help-block">I must have an URL!</span>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="format" class="col-xs-3">Format</label>
+			<div class="btn-group col-xs-9" name="format">
+		        <label class="btn btn-primary" ng-model="format" uib-btn-radio="'svg'" checked="checked">svg</label>
+		        <label class="btn btn-primary" ng-model="format" uib-btn-radio="'png'">png</label>
+		        <label class="btn btn-primary" ng-model="format" uib-btn-radio="'pdf'">pdf</label>
+		        <label class="btn btn-primary" ng-model="format" uib-btn-radio="'eps'">eps</label>
+		    </div>
+		</div>
+		<div class="form-group">
+		    <label for="errorCorrectionLevel" class="col-xs-3">Error Correction Level</label>
+		    <div class="btn-group col-xs-9" name="errorCorrectionLevel">
+		        <label class="btn btn-primary" ng-model="errorCorrectionLevel" uib-btn-radio="'L'">L</label>
+		        <label class="btn btn-primary" ng-model="errorCorrectionLevel" uib-btn-radio="'M'" checked="checked">M</label>
+		        <label class="btn btn-primary" ng-model="errorCorrectionLevel" uib-btn-radio="'Q'">Q</label>
+		        <label class="btn btn-primary" ng-model="errorCorrectionLevel" uib-btn-radio="'H'">H</label>
+		    </div>
+		</div>
+		<div class="form-group">
+			<div class="col-xs-offset-4 col-xs-3">
+			    <button class="btn btn-success " type="submit" ng-click="getQr()"
+			    ng-disabled="qrForm.$invalid">Get QR</button>
+		    </div>
+	    </div>
+	</form>
+  </div>
+
+	<div class="right-side">
+		<span ng-show="loading">Loading...</span>
+		<img class="qr-image img-responsive" src="{{qrCode}}" ng-show="qrCode">
+	</div>
+</div>

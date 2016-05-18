@@ -19,7 +19,7 @@ export default function(app) {
    .get(errors[404]);
 
   // All other routes should redirect to the index.html
-  app.route('/*')
+  app.route('/qrcode')
     .get((req, res) => {
       res.sendFile(path.resolve(app.get('appPath') + '/index.html'));
     });

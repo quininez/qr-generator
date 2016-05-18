@@ -51,7 +51,7 @@ export default function(app) {
    * Lusca - express server security
    * https://github.com/krakenjs/lusca
    */
-  if (env !== 'test' && !process.env.SAUCE_USERNAME) {
+  if (env !== 'test' && !process.env.SAUCE_USERNAME && env !== 'development') {
     app.use(lusca({
       csrf: {
         angular: true
@@ -62,7 +62,7 @@ export default function(app) {
         includeSubDomains: true,
         preload: true
       },
-      xssProtection: true
+      xssProtection: false
     }));
   }
 
@@ -87,6 +87,8 @@ export default function(app) {
   if ('development' === env || 'test' === env) {
     app.use(express.static(path.join(config.root, '.tmp')));
     app.use(express.static(app.get('appPath')));
+    //configuring savedcodes folder as static
+    app.use('/savedcodes',express.static('savedcodes'));
     app.use(morgan('dev'));
     app.use(errorHandler()); // Error handler - has to be last
   }

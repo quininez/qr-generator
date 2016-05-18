@@ -1,10 +1,10 @@
-<header class="hero-unit" id="banner">
+<header class="hero-unit" id="banner" ng-controller="MainController">
   <div class="container">
-    <h1>Generate qr codes from urls</h1>
-    <p class="lead">Please log in to use the app!</p>
-    <img src="assets/images/qrcode.png" alt="qr-code">
+    <h1>Generate QR codes from URLs</h1>
+    <p class="lead" ng-hide="main.isLoggedIn()">Please log in to use the app!</p>
+    <img  ng-hide="main.isLoggedIn()"src="assets/images/qrcode.png" alt="qr-code">
+    <a ng-show="main.isLoggedIn()" ui-sref="qrcode">
+      <img src="assets/images/qrcode.png" alt="qr-code">
+    </a>
   </div>
 </header>
-
-
-</div>
